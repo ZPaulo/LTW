@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title> Register </title>
-  <meta charset = "UTF-8">
-</head>
-<body>
-  <form id="Register" action = "php/register.php" method = "post">
+<?php include_once('templates/header.php'); ?>
+
+  <form id="Register" action = "register.php" method = "post">
     <div class="Info">UserName:<input type="text" name = "user">
                       Name:<input type="text" name = "name">
                       Email:<input type="text" name = "email">
                       Password:<input type="password" name = "pass">
-    /div>
+    </div>
     <input type="submit" value="Log in"/>
-  </form>
-</body>
-</html>
+</form>
+
+<?php include_once('templates/footer.php'); ?>

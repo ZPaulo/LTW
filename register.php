@@ -1,22 +1,18 @@
 <?php
 
+
   function check_user($user){
-    $db = new PDO('sqlite:dataBase.db');
+    $db = new PDO('sqlite:db/dataBase.db');
     $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
     $chk->execute(array($user));
-    if(!$chk->fetch()){
+    if(!$chk->fetch())
       return true;
-    }
-
     else
-    {
-      echo 'Sorry but that user is taken';
       return false;
-    }
   }
 
 function register_user(){
-  $db = new PDO('sqlite:dataBase.db');
+  $db = new PDO('sqlite:db/dataBase.db');
   try {
     $ins = $db->prepare('INSERT INTO User (user,nome,email,password) Values (?, ?, ?, ?)');
     $user = $_POST['user'];
@@ -24,14 +20,26 @@ function register_user(){
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     if(check_user($user))
+    {
       $ins->execute(array($user,$name,$email,$pass));
+      $msg = "Registration was succesfull :)";
+      return $msg;
+    }
+    else
+      {
+        $msg = "Username already taken, please choose another";
+        return $msg;
+      }
+
   } catch (PDOException $e) {
     echo $e->getMessage();
   }
 }
 
+session_start();
 
-register_user();
+$_SESSION['Msg'] = register_user();
 
+header('Location: index.php');
 
 ?>
