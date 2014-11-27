@@ -6,7 +6,7 @@
                       Email:<input type="text" name = "email">
                       Password:<input type="password" name = "pass">
     </div>
-    <input type="submit" value="Log in"/>
+    <input type="submit" value="Register"/>
 </form>
 
 <?php include_once('templates/footer.php'); ?>

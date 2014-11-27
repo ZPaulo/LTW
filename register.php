@@ -18,7 +18,8 @@ function register_user(){
     $user = $_POST['user'];
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $pass = $_POST['pass'];
+	$hashPass=md5($_POST['pass']);
+    $pass = $hashPass;
     if(check_user($user))
     {
       $ins->execute(array($user,$name,$email,$pass));
@@ -40,6 +41,6 @@ session_start();
 
 $_SESSION['Msg'] = register_user();
 
-header('Location: index.php');
+header('Location: login_body.php');
 
 ?>
