@@ -1,5 +1,5 @@
 <?php
-
+//hggd
 function check_user($user,$hashPass){
   $db = new PDO('sqlite:db/dataBase.db');
 
