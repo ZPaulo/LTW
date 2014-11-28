@@ -1,5 +1,5 @@
 <?php
-//hggd
+
 function check_user($user,$hashPass){
   $db = new PDO('sqlite:db/dataBase.db');
 
@@ -16,13 +16,11 @@ function login(){
     $hashPass=md5($_POST['pass']);
     if(check_user($user,$hashPass))
     {
-      $msg = "Succecefull Login";
-      return $msg;
+      return "true";
     }
     else
     {
-      $msg = "Invalid UserName or Password";
-      return $msg;
+      return "Invalid UserName or Password";
     }
 
   } catch (PDOException $e) {
@@ -32,8 +30,14 @@ function login(){
 
 session_start();
 
-$_SESSION['Msg'] = login();
+$msg = login();
+
+$_SESSION['Msg'] = $msg;
 $_SESSION['username'] = $_POST['user'];
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+if($msg == "true")
+  header('Location: create_poll_body.php');
+else
+  header('Location: login_body.php');
+
 ?>

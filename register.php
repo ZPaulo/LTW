@@ -14,14 +14,14 @@
 function register_user(){
   $db = new PDO('sqlite:db/dataBase.db');
   try {
-    $ins = $db->prepare('INSERT INTO User (user,nome,email,password) Values (?, ?, ?, ?)');
     $user = $_POST['user'];
     $name = $_POST['name'];
     $email = $_POST['email'];
-	$hashPass=md5($_POST['pass']);
+	  $hashPass=md5($_POST['pass']);
     $pass = $hashPass;
     if(check_user($user))
     {
+      $ins = $db->prepare('INSERT INTO User (user,name,email,password) Values (?, ?, ?, ?)');
       $ins->execute(array($user,$name,$email,$pass));
       $msg = "Registration was succesfull :)";
       return $msg;
