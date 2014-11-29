@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 $db = new PDO('sqlite:db/dataBase.db');
 
 function add_question(){
@@ -34,6 +35,8 @@ function insert($idPoll,$question){
 function create_poll(){
   global $db;
 
+  include_once "upload.php";
+
   $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
   $chk->execute(array($_SESSION['username']));
   $row = $chk->fetch();
@@ -58,6 +61,6 @@ function create_poll(){
 
 create_poll();
 
-header('Location: create_poll_body.php');
+//header('Location: create_poll_body.php');
 
 ?>
