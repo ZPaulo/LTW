@@ -6,11 +6,12 @@ $db = new PDO('sqlite:db/dataBase.db');
 
 function add_question(){
   $questions = array(array());
+  $i = 1;
   $questions[0][0] = $_POST['question1'];
-  $questions[0][1] = $_POST['answer1'];
-  $questions[0][]= $_POST['answer2'];
-  $questions[0][] = $_POST['answer3'];
-
+  while(isset($_POST['answer'.$i])){
+    $questions[0][$i] = $_POST['answer'.$i];
+    $i++;
+  }
   return $questions;
 }
 
@@ -35,7 +36,7 @@ function insert($idPoll,$question){
 function create_poll(){
   global $db;
 
-  include_once "upload.php";
+  //include_once "upload.php";
 
   $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
   $chk->execute(array($_SESSION['username']));
@@ -61,6 +62,6 @@ function create_poll(){
 
 create_poll();
 
-//header('Location: create_poll_body.php');
+header('Location: create_poll_body.php');
 
 ?>
