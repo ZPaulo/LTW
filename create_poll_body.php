@@ -9,6 +9,15 @@
   <meta charset = "UTF-8">
 </head>
 <body>
+<?php
+  session_start();
+
+  if(isset($_SESSION['Msg']))
+    ?> <div id = "errorMsg"> <?php echo $_SESSION['Msg'];?> </div>
+<?php
+  unset($_SESSION['Msg']);
+?>
+
 <form id="Create" action = "create_poll.php" method = "post"  enctype="multipart/form-data">
     Poll Name<input type="text" name = "name"> <br><br>
     Question <input type="text" name = "question1"><br>

@@ -1,8 +1,8 @@
 <?php
-
+$db = new PDO('sqlite:db/dataBase.db');
 
   function check_user($user){
-    $db = new PDO('sqlite:db/dataBase.db');
+    global $db;
     $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
     $chk->execute(array($user));
     if(!$chk->fetch())
@@ -12,7 +12,7 @@
   }
 
 function register_user(){
-  $db = new PDO('sqlite:db/dataBase.db');
+  global $db;
   try {
     $user = $_POST['user'];
     $name = $_POST['name'];

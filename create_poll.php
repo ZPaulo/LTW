@@ -22,46 +22,69 @@ function insert($idPoll,$question){
 
 
   for ($i = 1; $i < count($question); $i++){
-    $chk = $db->prepare('SELECT * FROM Question WHERE qText = ?');
-    $chk->execute(array($question[0]));
+    $chk = $db->prepare('SELECT * FROM Question WHERE qText = ? AND idPoll = ?');
+    $chk->execute(array($question[0],$idPoll));
     $row = $chk->fetch();
 
-    $ins = $db->prepare('INSERT INTO Answer (idQuestion,qText) Values (?, ?)');
-    $ins->execute(array($row['idQuestion'],$question[$i]));
+    $ins = $db->prepare('INSERT INTO Answer (idPoll,idQuestion,aText) Values (?,?,?)');
+    $ins->execute(array($idPoll,$row['idQuestion'],$question[$i]));
 
   }
 
 }
 
-function create_poll(){
+function check_poll($poll){
   global $db;
+  $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
+  $chk->execute(array($poll));
+  if(!$chk->fetch())
+    return true;
+  else
+    return false;
+}
 
-  //include_once "upload.php";
+function create_poll(){
+  if(check_poll($_POST['name'])){
 
-  $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
-  $chk->execute(array($_SESSION['username']));
-  $row = $chk->fetch();
+    //include_once "upload.php";
 
-  $ins = $db->prepare('INSERT INTO Poll (idUser,name) Values (?, ?)');
+    global $db;
 
-  $idUser = $row['idUser'];
-  $name = $_POST['name'];
-
-  $ins->execute(array($idUser,$name));
-
-  $questions = add_question();
-
-  for ($i = 0; $i < count($questions); $i++){
-    $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
-    $chk->execute(array($name));
+    $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
+    $chk->execute(array($_SESSION['username']));
     $row = $chk->fetch();
 
-    insert($row['idPoll'],$questions[$i]);
+
+
+    $ins = $db->prepare('INSERT INTO Poll (idUser,name) Values (?, ?)');
+
+    $idUser = $row['idUser'];
+    $name = $_POST['name'];
+
+    $ins->execute(array($idUser,$name));
+
+    $questions = add_question();
+
+    for ($i = 0; $i < count($questions); $i++){
+      $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
+      $chk->execute(array($name));
+      $row = $chk->fetch();
+
+      insert($row['idPoll'],$questions[$i]);
+    }
   }
+  else{
+    $_SESSION['Msg'] = "That Poll already exists, please choose another name";
+    header('Location: create_poll_body.php');
+    die("Unable to create Poll");
+  }
+
 }
 
 create_poll();
 
-header('Location: create_poll_body.php');
+$_SESSION['sel_poll'] = $_POST['name'];
+
+header('Location: vote_poll_body.php');
 
 ?>

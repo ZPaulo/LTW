@@ -32,12 +32,14 @@ session_start();
 
 $msg = login();
 
-$_SESSION['Msg'] = $msg;
-$_SESSION['username'] = $_POST['user'];
-
-if($msg == "true")
+if($msg == "true"){
+  $_SESSION['username'] = $_POST['user'];
   header('Location: create_poll_body.php');
-else
+}
+else{
+  $_SESSION['Msg'] = $msg;
   header('Location: login_body.php');
+}
+
 
 ?>
