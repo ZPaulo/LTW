@@ -22,11 +22,13 @@ $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ?')
 $stmt->execute(array($row['idQuestion'],$idPoll));
 $row = $stmt->fetch();
 
-$answers = array();
-$answers[0] = $row['aText'];
+$answers = array(array());
+$answers[0][0] = $row['aText'];
+$answers[0][1] = $row['votes'];
 $i = 1;
 while($row = $stmt->fetch()){
-  $answers[$i] = $row['aText'];
+  $answers[$i][0] = $row['aText'];
+  $answers[$i][1] = $row['votes'];
   $i++;
 }
 ?>
@@ -35,8 +37,7 @@ while($row = $stmt->fetch()){
 <div id = Question><?php echo $question; ?></div>
 <?php $i = 0;
 foreach ($answers as $answer){ ?>
-  <div id = Answer> <input type="radio" name="answer" value=<?php echo "answer". $i; ?>><?php echo $answer; ?> </div>
+  <div id = Answer> <input type="radio" name="answer" value=<?php echo $answer[0]; ?>><?php echo $answer[0]; ?> (<?php echo $answer[1]; ?> votes) </div>
   <?php $i++;
 }
-unset($_SESSION['sel_poll']);
 ?>

@@ -26,7 +26,7 @@ function insert($idPoll,$question){
     $chk->execute(array($question[0],$idPoll));
     $row = $chk->fetch();
 
-    $ins = $db->prepare('INSERT INTO Answer (idPoll,idQuestion,aText) Values (?,?,?)');
+    $ins = $db->prepare('INSERT INTO Answer (idPoll,idQuestion,aText,votes) Values (?,?,?,0)');
     $ins->execute(array($idPoll,$row['idQuestion'],$question[$i]));
 
   }
@@ -84,7 +84,7 @@ function create_poll(){
 create_poll();
 
 $_SESSION['sel_poll'] = $_POST['name'];
-
+$_SESSION['sel_quest'] = $_POST['question1'];
 header('Location: vote_poll_body.php');
 
 ?>
