@@ -16,7 +16,7 @@ unset($_SESSION['Msg']);
  
  include_once('templates/header.php'); 
 ?>
-
+<link rel="stylesheet" href="style.css" type="text/css">
 <form id="Login" action = "login.php" method = "post">
 <div class="Info">UserName:<input type="text" name = "user">
                   Password:<input type="password" name = "pass">

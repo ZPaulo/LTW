@@ -4,6 +4,7 @@
   <title> YouPoll </title>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="add_button.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css">
 
   <meta charset = "UTF-8">
 </head>
