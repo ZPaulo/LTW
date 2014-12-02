@@ -17,7 +17,9 @@
 <?php
   unset($_SESSION['Msg']);
 ?>
+<?php include_once('templates/header.php'); ?>
 
+<div id="container">
 <form id="Create" action = "create_poll.php" method = "post"  enctype="multipart/form-data">
     Poll Name<input type="text" name = "name"> <br><br>
     Question <input type="text" name = "question1"><br>
@@ -32,5 +34,6 @@
     Image   <input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
   <input type="submit" value="Create!"/>
 </form>
+</div>
 
 <?php include_once('templates/footer.php'); ?>

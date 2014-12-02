@@ -1,17 +1,24 @@
-<link rel="stylesheet" href="style.css" type="text/css">
-<p><h1> YOUPOLL </h1></p>
-<p><h2> LTW FEUP 2014</h2></p>
-<br>
-<br>
-<br>
-<br>
 
-<form action="login_body.php">
-    <input type="submit" value="Sign in">
-</form>
-<br>
-<br>
-<br>
-<form action="register_body.php">
-    <input type="submit" value="Register">
-</form>
+
+<link rel="stylesheet" href="style.css" type="text/css">
+
+
+	<div id="index">
+  <p><h1> Welcome to YOUPOLL! </h1></p>
+  	<p><h2> Vote, Share and Create polls  <h2/></p>
+  		<div id='cssmenu'>
+			<ul>
+   				<li><a href='login_body.php'><span>Login</span></a></li>
+   				<li class='last'><a href='register_body.php'><span>Register</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+<?php include_once('templates/footer.php'); ?>
+
+
+
+
+
+

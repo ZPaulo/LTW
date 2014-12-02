@@ -1,42 +1,61 @@
 body {
-	padding: 30px 30px;
+	padding: 0px 0px;
 	font: 13px/100% Helvetica, sans-serif;
-	background: #FFFFFF;
-	padding-bottom:300px;
-}
-iframe { width:100%; padding:0; border:0; height:180px; }
-html, body{
-	margin:0;  
-	/*o objetivo disto é que nao apareça a barrinha p fazer scroll*/
-}
-
-/* não sei como se faz o header/footer*/
-/* isto é temporário*/
-h1,p{
-   text-align: center;
-	color: #999;
-	background: #FFFFFF;
-
-}
-h2,p{
-    text-align: center;
-	color: #999;
-	background: #FFFFFF;
+	background: #C9C9C9;
+	 text-align: center;
 
 }
 
-/*form bonito*/
-form{
-	text-align: center;
-	margin: 0 auto;
-	background: #FFFFFF 
-	padding-right: 67px;
-	padding-left: 67px;
+#footer{
+    height: 30px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-form, ul { list-style-type:none } /*pra n aparecer a bolinha nas ul*/
+
+#header{
+    height: 70px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: left;
+}
 
 
-/*caixas de texto e botões bonitos*/
+#register{
+	width: 300px;
+    height: 250px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid #E5E5E5;
+
+}
+#index {
+	width: 300px;
+    height: 150px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid #E5E5E5;
+}
+#login {
+	width: 300px;
+    height: 100px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid #E5E5E5;
+}
 
 input { 
     margin-left: 0px; 
@@ -60,57 +79,74 @@ textarea {
 	max-width: 400px;
 	height: 180px;
 }
-
-input:hover, input:focus,
-textarea:hover, textarea:focus {
-	border-color: #C9C9C9;
-
-	-webkit-box-shadow: 0 0 8px rgba(0,0,0,.15);
-	-moz-box-shadow: 0 0 8px rgba(0,0,0,.15);
-	box-shadow: 0 0 8px rgba(0,0,0,.15);
-}
-
 input[type=submit],button {
-	width: auto;
-	padding: 9px 15px;
-	background: #617798;
-	border: 0;
-	font-size: 14px;
-	font-weight: bold;
-	color: #FFFFFF;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	cursor: pointer;
+  width: 300px;
+  padding: 15px 20px;
+  border-left: 1px solid #1682ba;
+  border-right: 1px solid #1682ba;
+  border-top: 1px solid #1682ba;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  background: #36aae7;
+  background: -webkit-linear-gradient(#36aae7, #1fa0e4);
+  background: -moz-linear-gradient(#36aae7, #1fa0e4);
+  background: -o-linear-gradient(#36aae7, #1fa0e4);
+  background: -ms-linear-gradient(#36aae7, #1fa0e4);
+  background: linear-gradient(#36aae7, #1fa0e4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 
-input[type=submit]:hover {
-	background: #7387A6;
-	-webkit-box-shadow: 1px 1px 8px rgba(0,0,0,.4);
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu {
+  width: 300px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+#cssmenu ul ul {
+  display: none;
+}
+.align-right {
+  float: right;
+}
+#cssmenu > ul > li > a {
+  padding: 15px 20px;
+  border-left: 1px solid #1682ba;
+  border-right: 1px solid #1682ba;
+  border-top: 1px solid #1682ba;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  background: #36aae7;
+  background: -webkit-linear-gradient(#36aae7, #1fa0e4);
+  background: -moz-linear-gradient(#36aae7, #1fa0e4);
+  background: -o-linear-gradient(#36aae7, #1fa0e4);
+  background: -ms-linear-gradient(#36aae7, #1fa0e4);
+  background: linear-gradient(#36aae7, #1fa0e4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-select{
-	padding: 5px 40px 5px 5px; 
-	height:40px; 
-	font-family: Helvetica, sans-serif;
 
-	-webkit-appearance: none;
-	-webkit-border-radius: 5px;
-	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-	
-	cursor: pointer;
-	border: 1px solid #CCC;
-	color: #999;
-	font-size: 90%;
-
-}
-
-select:hover, select:focus {
-	-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
-	outline: 0;
-	cursor: pointer;
-	border: 1px solid #CCC;
-	color: #999;
-	font-size: 90%;
-
-}
