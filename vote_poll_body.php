@@ -8,7 +8,7 @@
   <?php
   unset($_SESSION['Msg']);
   ?>
-
+<link rel="stylesheet" href="style.css" type="text/css">
 <form id="Vote" action = "vote.php" method = "post">
   <div class = "Poll">
     <fieldset>
