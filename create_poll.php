@@ -82,9 +82,6 @@ function create_poll(){
 }
 
 create_poll();
-
-$_SESSION['sel_poll'] = $_POST['name'];
-$_SESSION['sel_quest'] = $_POST['question1'];
-header('Location: vote_poll_body.php');
+header('Location: main_page_body.php');
 
 ?>

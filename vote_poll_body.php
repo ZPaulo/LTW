@@ -9,7 +9,7 @@
   unset($_SESSION['Msg']);
   ?>
 
-<form id="Vote" action = "vote.php" method = "post">
+<form id="Vote" action = <?php echo "vote.php?poll=". $_GET['poll'] ?> method = "post">
   <div class = "Poll">
     <fieldset>
       <?php require('load_vote.php');?>
