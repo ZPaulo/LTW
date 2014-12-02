@@ -1,6 +1,8 @@
 
 
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="templates/menustyle.css" type="text/css">
+
 
 
 	<div id="index">

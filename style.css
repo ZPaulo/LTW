@@ -47,16 +47,17 @@ body {
 }
 #login {
 	width: 300px;
-    height: 100px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: 1px solid #E5E5E5;
+  height: 100px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid #E5E5E5;
+  text-align: justify;
 }
-
+/*
 input { 
     margin-left: 0px; 
 }
@@ -80,15 +81,17 @@ textarea {
 	height: 180px;
 }
 input[type=submit],button {
-  width: 300px;
-  padding: 15px 20px;
-  border-left: 1px solid #1682ba;
-  border-right: 1px solid #1682ba;
-  border-top: 1px solid #1682ba;
+  background: #333333;
+  border-right: 4px solid #1b9bff;
+  color: #ffffff;
+  width: 200px;
+  font-size: 12px;
+  padding: 0px 0px;
+  border-left: 0px;
+ 
+  border-top: 0px;
   cursor: pointer;
   z-index: 2;
-  font-size: 14px;
-  font-weight: bold;
   text-decoration: none;
   color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
@@ -101,7 +104,7 @@ input[type=submit],button {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-
+/*
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
@@ -150,3 +153,4 @@ input[type=submit],button {
 }
 
 
+*/
