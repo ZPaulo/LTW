@@ -5,7 +5,7 @@ session_start();
 if(isset($_POST['answer']))
 {
 
-  $poll = $_SESSION['sel_poll'];
+  $poll = $_GET['poll'];
   $question = $_SESSION['sel_quest'];
   $answer = $_POST['answer'];
 
@@ -30,13 +30,12 @@ if(isset($_POST['answer']))
   $stmt->execute(array($inc_vote,$row['idAnswer']));
 
 
-  unset($_SESSION['sel_poll']);
   unset($_SESSION['sel_quest']);
 }
 else{
   $_SESSION['Msg'] = "You cannot vote blank";
 }
 
-//header('Location: vote_poll_body.php');
+header('Location: main_page_body.php');
 
 ?>

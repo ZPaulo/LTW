@@ -34,7 +34,7 @@ $msg = login();
 
 if($msg == "true"){
   $_SESSION['username'] = $_POST['user'];
-  header('Location: create_poll_body.php');
+  header('Location: main_page_body.php');
 }
 else{
   $_SESSION['Msg'] = $msg;
