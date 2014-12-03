@@ -12,21 +12,22 @@ if(isset($_GET['poll']))
   $row = $stmt->fetch();
 
   $idPoll = $row['idPoll'];
+  $poll_image = $row['image'];
 
   $stmt = $db->prepare('SELECT * FROM Question WHERE idPoll = ?');
   $stmt->execute(array($idPoll));
-  $row = $stmt->fetch();
 
   $questions = array(array());
-  $questions[0][0] = $row['qText'];
-  $questions[0][1] = $row['idQuestion'];
 
+  $i = 0;
   while($row = $stmt->fetch()){
-    $questions[][0] = $row['qText'];
-    $questions[][1] = $row['idQuestion'];
+    $questions[$i][0] = $row['qText'];
+    $questions[$i][1] = $row['idQuestion'];
+    $i++;
   }
 ?>
   <legend><?php echo $poll; ?></legend>
+  <img src=<?php echo "uploads/".$poll_image ?> alt="" width="300" height="200">
   <?php
   $i = 0;
   foreach($questions as $question){

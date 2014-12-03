@@ -17,13 +17,13 @@
 
 <div id="containerCreate">
 <form id="Create" action = "create_poll.php" method = "post"  enctype="multipart/form-data">
-    Poll Name<input type="text" name = "name"> <br><br>
+    Poll Name<input type="text" required = "required" name = "name"> <br><br>
     Image   <input type="file" name="fileToUpload" id="fileToUpload"> <br><br>
     <div id = "question0">
-      Question <input type="text" name = "question0"><br>
+      Question <input type="text" required = "required" name = "question0"><br>
       <div id="add_answer0">
-          <div id= "ans">Answer <input type="text" name = "q0answer0"></li> <br></div>
-          <div id= "ans">Answer <input type="text" name = "q0answer1"></li> <br></div>
+          <div id= "ans">Answer <input type="text" required = "required" name = "q0answer0"></li> <br></div>
+          <div id= "ans">Answer <input type="text" required = "required" name = "q0answer1"></li> <br></div>
           <input type = "button" name ="addAns" id = "addAns0" value = "Add">
       </div>
     </div>
