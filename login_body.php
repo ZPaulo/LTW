@@ -12,11 +12,14 @@ unset($_SESSION['Msg']);
 <link rel="stylesheet" href="style.css" type="text/css">
 <?php include_once('templates/header.php'); ?>
  <div id ="login">
+
 <form id="Login" action = "login.php" method = "post">
-<div class="Info">UserName:<input type="text" name = "user"><br/>
-                  Password:<input type="password" name = "pass"><br/>
+	 <p><h1> Login </h1> <p>
+       <br/>
+<div class="Info"><input type="text" name = "user" placeholder="Username"><br/>
+                  <input type="password" name = "pass" placeholder="Password"><br/>
 </div>
-    <input type="submit" value="Log in"/>
+    <button id="button" type="submit"> Log in </button>
 </form>
 </div>
 

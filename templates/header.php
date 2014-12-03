@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700,800' rel='stylesheet' type='text/css'>
 	<title>YOUPOLL</title>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> <!-- for jquery-->
 	<script type="text/javascript" src="js/jquery-passy.js"></script> <!-- required for password rating-->
@@ -9,6 +10,7 @@
   <meta charset = "UTF-8">
 </head>
 <body>
+	<div id="header"> 
   		<div id="cssmenu">
 			<ul>
    				<li><a href='index.php'><span>HOMEPAGE</span></a></li>

@@ -9,14 +9,15 @@
   unset($_SESSION['Msg']);
   ?>
 <link rel="stylesheet" href="style.css" type="text/css">
+<div id="container">
 <form id="Vote" action = <?php echo "vote.php?poll=". $_GET['poll'] ?> method = "post">
   <div class = "Poll">
     <fieldset>
       <?php require('load_vote.php');?>
-      <input type="submit" value="Vote"/>
     </fieldset>
   </div>
 </form>
+</div>
 
 
 

@@ -33,14 +33,14 @@ if(isset($_GET['poll']))
     $i++;
   }
   ?>
-
-  <legend><?php echo $poll; ?></legend>
-  <div id = Question><?php echo $question; ?></div>
-  <?php $i = 0;
+<legend><?php echo $poll; ?></legend>
+ <span id = "question"><?php echo $question; ?></span>
+ <?php $i = 0;
   foreach ($answers as $answer){ ?>
-    <div id = Answer> <input type="radio" name="answer" value=<?php echo $answer[0]; ?>><?php echo $answer[0]; ?> (<?php echo $answer[1]; ?> votes) </div>
+    <div><span><?php echo $answer[0]; ?></span> <a href=<?php "vote.php?poll=". $poll?>>Vote</a> <?php echo $answer[1]; ?></div>
     <?php $i++;
-  }
+}
+
   session_start();
   $_SESSION['sel_quest'] = $question;
 }

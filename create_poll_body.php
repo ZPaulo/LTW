@@ -15,7 +15,7 @@
 ?>
 <?php include_once('templates/header.php'); ?>
 
-<div id="container">
+<div id="containerCreate">
 <form id="Create" action = "create_poll.php" method = "post"  enctype="multipart/form-data">
     Poll Name<input type="text" name = "name"> <br><br>
     Question <input type="text" name = "question1"><br>

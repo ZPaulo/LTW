@@ -7,15 +7,15 @@
     <form id="Register" action = "register.php" method = "post">
        <p><h1> Sign up </h1> <p>
        <br/>
-    <div class="Info">UserName:<input type="text" name = "user" required="true"/> <br/>
-                      Name:<input type="text" name = "name" required="true"/> <br/>
-                      Email:<input type="email" name = "email" required="true"/> <br/>
-                      Password:<input type="password" name = "pass" id="input" required="true"/> 
+    <div class="Info"><input type="text" name = "user" required="true" placeholder="Username"/> <br/>
+                      <input type="text" name = "name" required="true" placeholder="Name"/> <br/>
+                      <input type="email" name = "email" required="true" placeholder="E-mail"/> <br/>
+                      <input type="password" name = "pass" id="input" required="true" placeholder="Password"/> 
                       <span id="output"></span><br/>
-                      Confirm Password:<input type="password" name="confPass" required="true"/> 
+                      <input type="password" name="confPass" required="true" placeholder="Confirm Password"/> 
                       <script type="text/javascript" src="js/strong_password.js"></script><br/>
     </div>
-    <input type="submit" value="Register"/>
+    <button id ="button" type="submit"> Register </button>
 </form>
 
 
