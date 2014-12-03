@@ -1,7 +1,7 @@
 
 
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="stylesheet" href="templates/menustyle.css" type="text/css">
+
 <?php include_once('templates/header.php'); ?>
 
 <div id="info">
