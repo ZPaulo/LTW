@@ -15,6 +15,7 @@
     <fieldset>
       <?php require('load_vote.php');?>
     </fieldset>
+    <input type="submit" value="Vote!"/>
   </div>
 </form>
 </div>
