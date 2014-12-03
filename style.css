@@ -1,11 +1,10 @@
 body {
 	padding: 0px 0px;
 	font-family: 'Open Sans', sans-serif;
-  font:'Open Sans', sand-serif;
+  font:'Open Sans', sans-serif;
 	background: #C9C9C9;
 	 text-align: center;
     background: url(back.jpg) no-repeat center center fixed;
-
 }
 
 #footer{
@@ -44,6 +43,9 @@ body {
   color: #ffffff;
 }
 
+#index,p{
+  color: #ffffff;
+}
 #index {
 	width: 200px;
   height:84px;
