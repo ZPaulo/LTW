@@ -12,7 +12,11 @@
 
 <div id="tabs">
   <ul>
+    <?php
+      session_start();
+      if(isset($_SESSION['username'])){ ?>
     <li><a href="#tabs-1">Create Poll</a></li>
+    <?php { ?>
     <li><a href="#tabs-2">Search Polls</a></li>
     <li><a href="#tabs-3">All Polls</a></li>
   </ul>

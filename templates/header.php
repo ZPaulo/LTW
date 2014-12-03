@@ -14,8 +14,15 @@
   		<div id="cssmenu">
 			<ul>
    				<li><a href='index.php'><span>HOMEPAGE</span></a></li>
+   				<?php session_start();
+   					if(isset($_SESSION['username'])){ ?>
+   					
+   					<a href='logout.php'><span>Logout</span></a>
+  					<?php } ?>
+   			
    				<!--<li><a href=""><span>SEARCH</span></a></li>
    				<li class='last'><a href=""><span>PROFILE</span></a></li>-->
 			</ul>
 		</div>
 	</div>
+		

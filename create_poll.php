@@ -1,7 +1,14 @@
 <?php
 
-
 session_start();
+
+if(!isset($_SESSION['username']))
+{
+  $_SESSION['Msg'] = "Must login first to create a poll";
+  header('Location: login_body.php');
+  die("Must login first to create a poll");
+}
+
 $db = new PDO('sqlite:db/dataBase.db');
 
 function add_question(){
@@ -50,53 +57,44 @@ function check_poll($poll){
 function create_poll(){
   if(check_poll($_POST['name'])){
 
-    if (empty($_FILES['fileToUpload']['name'])) {
-      $image = "default.jpg";
-    }
-    else{
-      include_once("upload.php");
-      $image = $_FILES["fileToUpload"]["name"];
-    }
+    //include_once "upload.php";
+
+    global $db;
+
+    $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
+    $chk->execute(array($_SESSION['username']));
+    $row = $chk->fetch();
 
 
-    if(isset($_SESSION['Msg'])){
-      echo $_SESSION['Msg'];
-    }
-    else{
-      global $db;
 
+    $ins = $db->prepare('INSERT INTO Poll (idUser,name) Values (?, ?)');
 
-      $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
-      $chk->execute(array($_SESSION['username']));
-      $row = $chk->fetch();
+    $idUser = $row['idUser'];
+    $name = $_POST['name'];
 
-      $questions = add_question();
+    $ins->execute(array($idUser,$name));
 
-      $ins = $db->prepare('INSERT INTO Poll (idUser,name,image) Values (?, ?, ?)');
+    $questions = add_question();
 
-      $idUser = $row['idUser'];
-      $name = $_POST['name'];
+    $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
+    $chk->execute(array($name));
+    $row = $chk->fetch();
 
-      $ins->execute(array($idUser,$name,$image));
-      echo $image;
-
-      $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
-      $chk->execute(array($name));
-      $row = $chk->fetch();
-      echo $row['idPoll'];
-
-      foreach ($questions as $question){
-        insert($row['idPoll'],$question);
-      }
+    foreach ($questions as $question){
+      insert($row['idPoll'],$question);
     }
   }
   else{
     $_SESSION['Msg'] = "That Poll already exists, please choose another name";
+    header('Location: create_poll_body.php');
+    die("Unable to create Poll");
   }
+
 }
 
-
 create_poll();
+
+$_SESSION['sel_poll'] = $_POST['name'];
 //header('Location: main_page_body.php');
 
 ?>

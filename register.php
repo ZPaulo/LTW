@@ -12,14 +12,17 @@ $subject = 'Activate Your Email';
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-$headers .= 'From: noreply@example.com' . "\r\n" .
-    'Reply-To: noreply@example.com' . "\r\n" .
+$headers .= 'From: noreply@youpoll.com' . "\r\n" .
+    'Reply-To: noreply@youpoll.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 $url= BASE_PATH . '/verify.php?email=' . urlencode($email) ;
 
 $message ='<p> Dear '.$name.'</p>';
 
+
 $message .='<p> To activate your account please click on Activate buttton <p>';
+
+$message.='CUIDADO QUE É VÍRUS!!!';
 
 $message.='<table cellspacing="0" cellpadding="0"> <tr>';
 $message .= '<td align="center" width="300" height="40" bgcolor="#000091" style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
@@ -99,11 +102,11 @@ function register_user(){
     $msg = "Only letters and white space allowed for Name";
     return $msg;
   }
-  else if(!check_email_exists($email))
+ /* else if(!check_email_exists($email))
   {
     $msg = "E-mail already used";
     return $msg;
-  }
+  }*/
   else if(!check_user($user))
   {
     $msg = "Username already taken, please choose another";

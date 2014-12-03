@@ -2,9 +2,12 @@
 
 session_start();
 
-if(isset($_POST['answer0']))
+if(isset($_POST['answer']))
 {
+
   $poll = $_GET['poll'];
+  $question = $_SESSION['sel_quest'];
+  $answer = $_POST['answer'];
 
   $db = new PDO('sqlite:db/dataBase.db');
 
@@ -13,32 +16,26 @@ if(isset($_POST['answer0']))
   $row = $stmt->fetch();
   $idPoll = $row['idPoll'];
 
-  $stmt = $db->prepare('SELECT * FROM Question WHERE idPoll = ?');
-  $stmt->execute(array($idPoll));
+  $stmt = $db->prepare('SELECT * FROM Question WHERE qText = ? AND idPoll = ?');
+  $stmt->execute(array($question,$idPoll));
+  $row = $stmt->fetch();
 
-  $i = 0;
-  while($row = $stmt->fetch()){
-    if(isset($_POST['answer'.$i])){
-      $ans = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ? AND aText = ?');
-      $ans->execute(array($row['idQuestion'],$idPoll,$_POST['answer'.$i]));
-      $row = $ans->fetch();
+  $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ? AND aText = ?');
+  $stmt->execute(array($row['idQuestion'],$idPoll,$answer));
+  $row = $stmt->fetch();
 
-      $inc_vote = $row['votes']+1;
+  $inc_vote = $row['votes']+1;
+
+  $stmt = $db->prepare('UPDATE Answer SET votes = ? WHERE idAnswer = ?');
+  $stmt->execute(array($inc_vote,$row['idAnswer']));
 
 
-      $ans = $db->prepare('UPDATE Answer SET votes = ? WHERE idAnswer = ?');
-      $ans->execute(array($inc_vote,$row['idAnswer']));
-
-    }
-
-    $i++;
-
-  }
-
+  unset($_SESSION['sel_quest']);
 }
 else{
   $_SESSION['Msg'] = "You cannot vote blank";
 }
+
 header('Location: main_page_body.php');
 
 ?>
