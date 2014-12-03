@@ -17,31 +17,30 @@ if(isset($_GET['poll']))
   $stmt->execute(array($idPoll));
   $row = $stmt->fetch();
 
-  $question = $row['qText'];
+  $questions = array(array());
+  $questions[0][0] = $row['qText'];
+  $questions[0][1] = $row['idQuestion'];
 
-  $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ?');
-  $stmt->execute(array($row['idQuestion'],$idPoll));
-  $row = $stmt->fetch();
-
-  $answers = array(array());
-  $answers[0][0] = $row['aText'];
-  $answers[0][1] = $row['votes'];
-  $i = 1;
   while($row = $stmt->fetch()){
-    $answers[$i][0] = $row['aText'];
-    $answers[$i][1] = $row['votes'];
+    $questions[][0] = $row['qText'];
+    $questions[][1] = $row['idQuestion'];
+  }
+?>
+  <legend><?php echo $poll; ?></legend>
+  <?php
+  $i = 0;
+  foreach($questions as $question){
+    ?> <div id = Question><?php echo $question[0]; ?></div>
+    <?php
+    $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ?');
+    $stmt->execute(array($question[1],$idPoll));
+
+    while($row = $stmt->fetch()){?>
+      <div id = Answer> <input type="radio" name=<?php echo "answer".$i; ?> value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
+    <?php
+    }
     $i++;
   }
-  ?>
 
-  <legend><?php echo $poll; ?></legend>
-  <div id = Question><?php echo $question; ?></div>
-  <?php $i = 0;
-  foreach ($answers as $answer){ ?>
-    <div id = Answer> <input type="radio" name="answer" value=<?php echo $answer[0]; ?>><?php echo $answer[0]; ?> (<?php echo $answer[1]; ?> votes) </div>
-    <?php $i++;
-  }
-  session_start();
-  $_SESSION['sel_quest'] = $question;
 }
 ?>

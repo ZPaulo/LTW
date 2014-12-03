@@ -6,11 +6,16 @@ $db = new PDO('sqlite:db/dataBase.db');
 
 function add_question(){
   $questions = array(array());
-  $i = 1;
-  $questions[0][0] = $_POST['question1'];
-  while(isset($_POST['answer'.$i])){
-    $questions[0][$i] = $_POST['answer'.($i-1)];
-    $i++;
+  $i = 0;
+  $j = 0;
+  while(isset($_POST['question'.$j])){
+    $questions[$j][0] = $_POST['question'.$j];
+    while(isset($_POST['q'.$j.'answer'.$i])){
+      $questions[$j][$i+1] = $_POST['q'.$j.'answer'.$i];
+      $i++;
+    }
+    $i = 0;
+    $j++;
   }
   return $questions;
 }
@@ -19,7 +24,6 @@ function insert($idPoll,$question){
   global $db;
   $ins = $db->prepare('INSERT INTO Question (idPoll,qText) Values (?, ?)');
   $ins->execute(array($idPoll,$question[0]));
-
 
   for ($i = 1; $i < count($question); $i++){
     $chk = $db->prepare('SELECT * FROM Question WHERE qText = ? AND idPoll = ?');
@@ -65,12 +69,12 @@ function create_poll(){
 
     $questions = add_question();
 
-    for ($i = 0; $i < count($questions); $i++){
-      $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
-      $chk->execute(array($name));
-      $row = $chk->fetch();
+    $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
+    $chk->execute(array($name));
+    $row = $chk->fetch();
 
-      insert($row['idPoll'],$questions[$i]);
+    foreach ($questions as $question){
+      insert($row['idPoll'],$question);
     }
   }
   else{
@@ -84,7 +88,6 @@ function create_poll(){
 create_poll();
 
 $_SESSION['sel_poll'] = $_POST['name'];
-$_SESSION['sel_quest'] = $_POST['question1'];
-header('Location: vote_poll_body.php');
+//header('Location: main_page_body.php');
 
 ?>
