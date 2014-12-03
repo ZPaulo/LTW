@@ -33,8 +33,6 @@ session_start();
 $msg = login();
 
 if($msg == "true"){
-
-  $_SESSION['verifyUser']=$_POST['user'];
   $_SESSION['username'] = $_POST['user'];
   header('Location: main_page_body.php');
 }

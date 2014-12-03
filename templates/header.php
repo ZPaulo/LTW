@@ -17,12 +17,10 @@
    				<?php session_start();
    					if(isset($_SESSION['username'])){ ?>
    					
-   					<a href='logout.php'><span>Logout</span></a>
+   					<li><a href='logout.php'><span>Logout</span></a></li>
   					<?php } ?>
-   			
    				<!--<li><a href=""><span>SEARCH</span></a></li>
    				<li class='last'><a href=""><span>PROFILE</span></a></li>-->
 			</ul>
 		</div>
 	</div>
-		
