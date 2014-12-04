@@ -12,14 +12,14 @@ $(document).ready(function() {
     e.preventDefault();
     y++;
     if(y < max_fields_q){
-      add_button_q.before('<div id = "question'+y+'">Question '+y+'<input type="text" name = "question'+y+'"><br><div id="add_answer'+y+'"><div id= "ans">Answer <input type="text" name = "q'+y+'answer0"></li> <br></div><div id= "ans">Answer <input type="text" name = "q'+y+'answer1"></li> <br></div><input type = "button" name ="addAns" id = "addAns'+y+'" value = "Add"></div></div>');
+      add_button_q.before('<div id = "question'+y+'">Question '+y+'<input type="text" required = "required" name = "question'+y+'"><br><div id="add_answer'+y+'"><div id= "ans">Answer <input type="text" required = "required" name = "q'+y+'answer0"></li> <br></div><div id= "ans">Answer <input type="text" required = "required" name = "q'+y+'answer1"></li> <br></div><input type = "button" name ="addAns" id = "addAns'+y+'" value = "Add"></div></div>');
 
       x[y] = 2;
       $("#addAns"+y).off('click').click(function(e){
         e.preventDefault();
         var quest = ($(e.target).attr("id")).charAt(6);
         if(x[quest] < max_fields){
-          $(e.target).before('<div id = ans>Answer <input type="text" name = "q'+quest+'answer'+x[quest]+'"><a href="#" class="remove_field" id = "'+quest+'">Remove</a><br></div>');
+          $(e.target).before('<div id = ans>Answer <input type="text" required = "required" name = "q'+quest+'answer'+x[quest]+'"><a href="#" class="remove_field" id = "'+quest+'">Remove</a><br></div>');
           x[quest]++;
         }
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
   add_button.click(function(e){
     e.preventDefault();
     if(x[0] < max_fields){
-      add_button.before('<div id = ans>Answer <input type="text" name = "q0answer'+x[0]+'"><a href="#" class="remove_field">Remove</a><br></div>');
+      add_button.before('<div id = ans>Answer <input type="text" required = "required" name = "q0answer'+x[0]+'"><a href="#" class="remove_field">Remove</a><br></div>');
       x[0]++;
     }
 

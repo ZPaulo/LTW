@@ -3,14 +3,6 @@
 
 session_start();
 
-if(!isset($_SESSION['username']))
-{
-  $_SESSION['Msg'] = "Must login first to create a poll";
-  header('Location: login_body.php');
-  die("Must login first to create a poll");
-}
-
-
 $db = new PDO('sqlite:db/dataBase.db');
 
 function add_question(){
@@ -74,19 +66,36 @@ function create_poll(){
     else{
       global $db;
 
+      if(isset($_POST['private'])){
+        if(!isset($_SESSION['username']))
+        {
+          $_SESSION['Msg'] = "Must login first to create a private poll";
+          header('Location: login_body.php');
+          die("Must login first to create a poll");
+        }
+        $private = 1;
+      }
+      else{
+        $private = 0;
+      }
 
       $chk = $db->prepare('SELECT * FROM User WHERE user = ?');
       $chk->execute(array($_SESSION['username']));
-      $row = $chk->fetch();
+
+      if(!($row = $chk->fetch())){
+        $idUser = 0;
+      }
+      else{
+        $idUser = $row['idUser'];
+      }
 
       $questions = add_question();
 
-      $ins = $db->prepare('INSERT INTO Poll (idUser,name,image) Values (?, ?, ?)');
+      $ins = $db->prepare('INSERT INTO Poll (idUser,name,image,private) Values (?, ?, ?, ?)');
 
-      $idUser = $row['idUser'];
       $name = $_POST['name'];
 
-      $ins->execute(array($idUser,$name,$image));
+      $ins->execute(array($idUser,$name,$image,$private));
       echo $image;
 
       $chk = $db->prepare('SELECT * FROM Poll WHERE name = ?');
