@@ -21,7 +21,11 @@ body {
     width: 100%;
 }
 
-
+#tabs{
+width: 50%;
+margin: auto;
+margin-top: 9em;
+}
 
 #register{
 	width: 300px;

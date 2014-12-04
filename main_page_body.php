@@ -27,6 +27,7 @@
         if(isset($_SESSION['username'])){ ?>
 
           <li><a href='logout.php'><span>Logout</span></a></li>
+          <li><a href='profile_body.php'><span>Profile</span></a></li>
           <?php } ?>
         </ul>
       </div>
