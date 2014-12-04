@@ -21,7 +21,11 @@ body {
     width: 100%;
 }
 
-
+#tabs{
+width: 50%;
+margin: auto;
+margin-top: 9em;
+}
 
 #register{
 	width: 300px;
@@ -32,7 +36,7 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  background-color: 
+  background-color:
 }
 
 #register,p{
@@ -67,7 +71,7 @@ right: 0;
 margin: auto;
 }
 #info,p{
-  color: #ffffff;
+  color: #000000;
 }
 
 #login {
@@ -96,9 +100,9 @@ input{
   color: #ffffff;
   cursor: pointer;
   z-index: 2;
-  font-size: 12px; 
+  font-size: 12px;
   text-decoration: none;
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
 
 #button:hover {
@@ -155,8 +159,8 @@ input{
 
 
 /*
-input { 
-    margin-left: 0px; 
+input {
+    margin-left: 0px;
 }
 
 input, textarea{
@@ -185,7 +189,7 @@ input[type=submit],button {
   font-size: 12px;
   padding: 0px 0px;
   border-left: 0px;
- 
+
   border-top: 0px;
   cursor: pointer;
   z-index: 2;

@@ -12,8 +12,9 @@ if(isset($_GET['searchData'])){
   $stmt->execute(array('%'.$poll.'%'));
 
   while($row = $stmt->fetch()){
-    $sResults .= '<li> '. $row['idPoll']. ' <a href=vote_poll_body.php?poll='. $row['name'].' name='.$row['name'].' >'.$row['name'].'</a></li>.<br>';
-
+    if($row['private'] == 0){
+    $sResults .= '<p> '. $row['idPoll']. ' <a href=vote_poll_body.php?poll='. $row['name'].' name='.$row['name'].' >'.$row['name'].'</a></p><br>';
+    }
   }
 
   echo   $sResults;
