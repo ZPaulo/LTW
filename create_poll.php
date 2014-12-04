@@ -106,6 +106,9 @@ function create_poll(){
 
 
 create_poll();
-//header('Location: main_page_body.php');
+
+
+
+
 
 ?>

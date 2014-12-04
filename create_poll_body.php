@@ -1,8 +1,12 @@
 <?php include_once('templates/header.php'); ?>
 
 
-  <script type="text/javascript" src="js/add_button.js"></script>
-  <link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="js/add_button.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+<link type="text/css" rel="stylesheet" href="templates/menupopup.css" />
+
+  
 
 <body>
 <?php
@@ -13,7 +17,7 @@
 <?php
   unset($_SESSION['Msg']);
 ?>
-<?php include_once('templates/header.php'); ?>
+
 
 <div id="containerCreate">
 <form id="Create" action = "create_poll.php" method = "post"  enctype="multipart/form-data">
@@ -29,7 +33,10 @@
     </div>
     <input type = "button" name ="addQue" id = "addQue" value = "Add">
   <input type="submit" value="Create!"/>
-</form>
+ 
+ <?php include_once('share_popup.php'); ?>
+
+ </form>
 </div>
 
 <?php include_once('templates/footer.php'); ?>
