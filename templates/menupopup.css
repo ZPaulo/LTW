@@ -22,7 +22,7 @@ body {font-family: 'Source Sans Pro', sans-serif; font-size: 14px; color: #666;}
 	background: #FFF;
 }
 
-#modal_trigger {margin:100px auto; width:100px; display:block;}
+#modal_trigger {width:100px;}
 
 .btn {padding:10px 20px; background: #F4F4F2;}
 .btn_red {background: #ED6347; color: #FFF;}
@@ -50,7 +50,7 @@ a.btn_red {color: #FFF;}
 /* Social Login Form */
 .social_login {}
 .social_login .social_box {display:block; clear:both; padding:10px; margin-bottom: 10px; background: #F4F4F2; overflow: hidden;}
-.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;} 
+.social_login .icon {display:block; width:10px; padding:5px 10px; margin-right: 10px; float:left; color:#FFF; font-size:16px; text-align: center;}
 .social_login .fb .icon {background:#3B5998;}
 .social_login .google .icon {background:#DD4B39;}
 .social_login .mail .icon {background:#EBABAB;}

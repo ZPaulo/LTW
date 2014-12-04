@@ -1,12 +1,7 @@
 
 
 
-<script type="text/javascript" src="js/add_button.js"></script>
-<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
-<link type="text/css" rel="stylesheet" href="templates/menupopup.css" />
 
-  
 
 <?php
   session_start();
@@ -32,8 +27,7 @@
     </div>
     <input type = "button" name ="addQue" id = "addQue" value = "Add">
   <input type="submit" value="Create!"/>
- 
- <?php include_once('share_popup.php'); ?>
+
 
  </form>
 </div>

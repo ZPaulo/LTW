@@ -18,13 +18,13 @@ if(isset($_SESSION['username'])){
     <li> <p> You have no created polls </p> </li>
   <?php }
   else{ ?>
-    <li> <?php echo "ID:   ". $row['idPoll']. "            Name:      ".$row['name']; ?><a href= <?php echo "manage_body.php?poll=".$row['name']; ?> >Manage</a> <a href= "Share" >Share</a></li><br><br>
+    <li> <?php echo "ID:   ". $row['idPoll']. "            Name:      ".$row['name']; ?><a href= <?php echo "manage_body.php?poll=".$row['name']; ?> >Manage</a> <?php require('share_popup.php'); ?></li><br><br>
     <?php
   }
 
 
   while($row = $stmt->fetch()){ ?>
-    <li> <?php echo "ID:   ". $row['idPoll']. "            Name:      ".$row['name']; ?><a href= <?php echo "manage_body.php?poll=".$row['name']; ?> >Manage</a><a href= "Share" >Share</a></li><br><br>
+    <li> <?php echo "ID:   ". $row['idPoll']. "            Name:      ".$row['name']; ?><a href= <?php echo "manage_body.php?poll=".$row['name']; ?> >Manage</a><?php require('share_popup.php'); ?></li><br><br>
       <?php  }
 
 }

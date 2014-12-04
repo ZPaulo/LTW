@@ -6,6 +6,10 @@
 
   <link rel="stylesheet" href="templates/menustyle.css" type="text/css">
   <link rel="stylesheet" href="templates/style.css" type="text/css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="templates/menupopup.css" />
+  <script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
   <meta charset = "UTF-8">
 </head>
 <body>
@@ -31,12 +35,10 @@
     <?php
     unset($_SESSION['Msg']);
     ?>
-    <form id="Profile">
-        <div class = "Profile">
+        <div id = "profile">
           <ul>
             <?php require('profile.php');?>
           </ul>
-        </form>
 
 
       <?php include_once('templates/footer.php'); ?>

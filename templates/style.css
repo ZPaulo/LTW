@@ -7,6 +7,11 @@ body {
     background: url(back.jpg) no-repeat center center fixed;
 }
 
+#profile{
+
+	margin-top: 20em;
+}
+
 #footer{
     height: 30px;
     position: fixed;
