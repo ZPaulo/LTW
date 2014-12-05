@@ -19,7 +19,7 @@
   <meta charset = "UTF-8">
 </head>
 <body>
-  <div id="header">
+  <!--<div id="header">
     <div id="cssmenu">
       <ul>
         <li><a href='index.php'><span>HOMEPAGE</span></a></li>
@@ -31,9 +31,11 @@
           <?php } ?>
         </ul>
       </div>
-    </div>
+    </div>-->
 
+<?php include_once('templates/header.php'); ?>
 
+<!--
   <div id="tabs">
     <ul>
       <li><a href="#tabs-1">Create Poll</a></li>
@@ -51,7 +53,7 @@
     </div>
   </div>
 
-
+-->
 
 
 <?php include_once('templates/footer.php'); ?>

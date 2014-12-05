@@ -2,7 +2,10 @@
 <html>
 <head>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700,800' rel='stylesheet' type='text/css'>
+
   <title>YOUPOLL</title>
+  <link rel="stylesheet" href="templates/menustyle.css" type="text/css">
+  <link rel="stylesheet" href="templates/style.css" type="text/css">
   <meta charset = "UTF-8">
 </head>
 <body>
@@ -37,6 +40,7 @@
   </div>
 </form>
 </div>
+
 
 
 

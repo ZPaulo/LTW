@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700,800' rel='stylesheet' type='text/css'>
-  <title>YOUPOLL</title>
-  <link rel="stylesheet" href="templates/menustyle.css" type="text/css">
-  <link rel="stylesheet" href="templates/style.css" type="text/css">
-  <meta charset = "UTF-8">
-</head>
-<body>
-  <div id="header">
-    <div id="cssmenu">
-      <ul>
-        <li><a href='index.php'><span>HOMEPAGE</span></a></li>
-        <?php session_start();
-        if(isset($_SESSION['username'])){ ?>
 
-          <li><a href='logout.php'><span>Logout</span></a></li>
-          <li><a href='profile_body.php'><span>Profile</span></a></li>
-          <?php } ?>
-          <!--<li><a href=""><span>SEARCH</span></a></li>
-          <li class='last'><a href=""><span>PROFILE</span></a></li>-->
-        </ul>
-      </div>
-    </div>
+<?php include_once('templates/header.php'); ?>
 
     <?php
 
@@ -35,7 +12,7 @@
 
     ?>
 
- <div id ="login">
+<!-- <div id ="login">
 
 <form id="Login" action = "login.php" method = "post">
 	 <p><h1> Login </h1> <p>
@@ -45,8 +22,27 @@
 </div>
     <button id="button" type="submit"> Log in </button>
 </form>
-</div>
+</div>-->
 
+<div class="jumbotron" id="j2">
+ <div class="container">
+
+      <form class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+</div>
 
 
 <?php include_once('templates/footer.php'); ?>

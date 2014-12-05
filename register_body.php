@@ -1,39 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700,800' rel='stylesheet' type='text/css'>
-	<title>YOUPOLL</title>
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> <!-- for jquery-->
-	<script type="text/javascript" src="js/jquery-passy.js"></script> <!-- required for password rating-->
-	<link rel="stylesheet" href="templates/menustyle.css" type="text/css">
-	<link rel="stylesheet" href="templates/style.css" type="text/css">
-	<title> YouPoll </title>
-	<meta charset = "UTF-8">
-</head>
-<body>
-	<div id="header">
-		<div id="cssmenu">
-			<ul>
-				<li><a href='index.php'><span>HOMEPAGE</span></a></li>
-				</ul>
-			</div>
+
+	<?php include_once('templates/header.php'); ?>
+
+	<div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+<div class="jumbotron" id="j1">
+	<div class = "container">
+		<div id="register">
+			<h1><b>REGISTER</b></h1><br>
+			<form class="form-horizontal" role="form" action="register.php" method="post">
+				<div class="form-group">
+					<label for="user" class="col-sm-2 control-label">USERNAME</label>
+					<div class="col-sm-10">
+						<input type="text" name="user" class="form-control" id="user"
+						required="true" placeholder="USERNAME">
+					</div>
+					<label for="name" class="col-sm-2 control-label">NAME</label>
+					<div class="col-sm-10">
+						<input type="text" name="name"  class="form-control" id="name"
+						required="true" placeholder="NAME">
+					</div>
+					<label for="email" class="col-sm-2 control-label">E-MAIL</label>
+					<div class="col-sm-10">
+						<input type="email" name="email"  class="form-control" id="email"
+						required="true" placeholder="E-MAIL">
+					</div>
+					<label for="password" class="col-sm-2 control-label">PASSWORD</label>
+					<div class="col-sm-10">
+						<input type="password" name="pass" class="form-control" id="input" required="true" placeholder="PASSWORD">
+					</div>
+					<span id="output"></span>
+					<label for="password" class="col-sm-2 control-label">CONFIRM PASSWORD</label>
+					<div class="col-sm-10">
+						<input type="password"  name="confPass" class="form-control" id="confPass" required="true" placeholder="CONFIRM PASSWORD">
+					</div>
+					  <script type="text/javascript" src="js/strong_password.js"></script>
+					<div class="col-sm-10">
+						 <button id ="button" type="submit"> Register </button>
+					</div>
+				</div>
+			</form>
 		</div>
-  <div id ="register">
-
-    <form id="Register" action = "register.php" method = "post">
-       <p><h1> Sign up </h1> <p>
-       <br/>
-    <div class="Info"><input type="text" name = "user" required="true" placeholder="Username"/> <br/>
-                      <input type="text" name = "name" required="true" placeholder="Name"/> <br/>
-                      <input type="email" name = "email" required="true" placeholder="E-mail"/> <br/>
-                      <input type="password" name = "pass" id="input" required="true" placeholder="Password"/>
-                      <span id="output"></span><br/>
-                      <input type="password" name="confPass" required="true" placeholder="Confirm Password"/>
-                      <script type="text/javascript" src="js/strong_password.js"></script><br/>
+	</div>
+</div>
+</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <button id ="button" type="submit"> Register </button>
-</form>
-
+  </div>
+</div>
 
 
 <?php include_once('templates/footer.php'); ?>

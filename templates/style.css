@@ -2,9 +2,9 @@ body {
 	padding: 0px 0px;
 	font-family: 'Open Sans', sans-serif;
   font:'Open Sans', sans-serif;
-	background: #C9C9C9;
-	 text-align: center;
-    background: url(back.jpg) no-repeat center center fixed;
+	text-align: center;
+  background-image: url("knot.jpg");
+  background-repeat: repeat
 }
 
 #profile{
@@ -18,20 +18,20 @@ body {
     bottom: 0;
     width: 100%;
 }
-
+/*
 #header{
     height: 70px;
     position: fixed;
     top: 0;
     width: 100%;
-}
+}*/
 
 #tabs{
 width: 50%;
 margin: auto;
 margin-top: 9em;
 }
-
+/*
 #register{
 	width: 300px;
   height: 240px;
@@ -46,13 +46,13 @@ margin-top: 9em;
 
 #register,p{
   color: #ffffff;
-}
+}*/
 
 #login,p{
   color: #ffffff;
 }
 
-#index,p{
+/*#index,p{
   color: #ffffff;
 }
 #index {
@@ -78,7 +78,7 @@ margin: auto;
 #info,p{
   color: #000000;
 }
-
+*/
 #login {
 	width: 300px;
   height: 170px;
@@ -115,32 +115,24 @@ input{
 }
 
 
-#container {
+#voteContainer{
   color: #fff;
-  background:#333333;
-  width: 300px;
-  height: 150px;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+  background:#000;
 }
-#container #question {
-        display: block;
-        padding: 20px;
-        font-weight: bold;
-        letter-spacing: -3px;
-        margin-bottom: 20px;
-        padding: 10px;
-        font-size: 40px;
-    }
-    #container div {
-        font-weight: bold;
-        letter-spacing: -3px;
-        background: #0099cc;
-        margin-bottom: 15px;
+#voteContainer #question {
+  display: block;
+  padding: 20px;
+  font-weight: bold;
+  letter-spacing: -3px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 40px;
+}
+#voteContainer div {
+  font-weight: bold;
+  letter-spacing: -3px;
+  background: #0099cc;
+    margin-bottom: 15px;
         padding: 10px;
         font-size: 34px;
         color: #ffffff;
@@ -150,7 +142,7 @@ input{
         -moz-border-radius: 0 0.5em 0.5em 0;
         border-radius: 0 1.5em 1.5em 0;
     }
-    #container div a {
+    #voteContainer div a {
         border-radius: 0.3em;
         text-decoration: none;
         color: #0099cc;
@@ -158,105 +150,6 @@ input{
         background: #333;
         margin: 0 20px;
     }
-    #container div a:hover {
+    #voteContainer div a:hover {
         color: #fff;
     }
-
-
-/*
-input {
-    margin-left: 0px;
-}
-
-input, textarea{
-	border: 1px solid #E5E5E5;
-	outline: 0;
-	font: normal 15px/150% Helvetica, sans-serif;
-
-	-webkit-box-shadow: 0 0 8px rgba(0,0,0,.1);
-	-moz-box-shadow: 0 0 8px rgba(0,0,0,.1);
-	box-shadow: 0 0 8px rgba(0,0,0,.1);
-
-	background: -webkit-linear-gradient(top, #EEE 0px, #FFF 25px);
-	background: -moz-linear-gradient(top, #EEE 0px, #FFF 25px);
-}
-
-textarea {
-	width: 420px;
-	max-width: 400px;
-	height: 180px;
-}
-input[type=submit],button {
-  background: #333333;
-  border-right: 4px solid #1b9bff;
-  color: #ffffff;
-  width: 200px;
-  font-size: 12px;
-  padding: 0px 0px;
-  border-left: 0px;
-
-  border-top: 0px;
-  cursor: pointer;
-  z-index: 2;
-  text-decoration: none;
-  color: #ffffff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-  background: #36aae7;
-  background: -webkit-linear-gradient(#36aae7, #1fa0e4);
-  background: -moz-linear-gradient(#36aae7, #1fa0e4);
-  background: -o-linear-gradient(#36aae7, #1fa0e4);
-  background: -ms-linear-gradient(#36aae7, #1fa0e4);
-  background: linear-gradient(#36aae7, #1fa0e4);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-/*
-#cssmenu,
-#cssmenu ul,
-#cssmenu ul li,
-#cssmenu ul li a {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  list-style: none;
-  line-height: 1;
-  display: block;
-  position: relative;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-#cssmenu {
-  width: 300px;
-  font-family: Helvetica, Arial, sans-serif;
-  color: #ffffff;
-}
-#cssmenu ul ul {
-  display: none;
-}
-.align-right {
-  float: right;
-}
-#cssmenu > ul > li > a {
-  padding: 15px 20px;
-  border-left: 1px solid #1682ba;
-  border-right: 1px solid #1682ba;
-  border-top: 1px solid #1682ba;
-  cursor: pointer;
-  z-index: 2;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #ffffff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
-  background: #36aae7;
-  background: -webkit-linear-gradient(#36aae7, #1fa0e4);
-  background: -moz-linear-gradient(#36aae7, #1fa0e4);
-  background: -o-linear-gradient(#36aae7, #1fa0e4);
-  background: -ms-linear-gradient(#36aae7, #1fa0e4);
-  background: linear-gradient(#36aae7, #1fa0e4);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-
-*/
