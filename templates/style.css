@@ -48,9 +48,7 @@ margin-top: 9em;
   color: #ffffff;
 }*/
 
-#login,p{
-  color: #ffffff;
-}
+
 
 /*#index,p{
   color: #ffffff;
@@ -79,19 +77,10 @@ margin: auto;
   color: #000000;
 }
 */
-#login {
-	width: 300px;
-  height: 170px;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-input{
+
+/*input{
   width : 196px;
-}
+}*/
 
 #button {
  padding: 15px 20px;
@@ -117,7 +106,6 @@ input{
 
 #voteContainer{
   color: #fff;
-  background:#000;
 }
 #voteContainer #question {
   display: block;

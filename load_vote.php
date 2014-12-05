@@ -54,12 +54,12 @@ if(isset($_GET['poll']))
     $i++;
   }
 ?>
-  <legend><?php echo $poll; ?></legend>
+  <h1><?php echo $poll; ?></h1>
   <img src=<?php echo "uploads/".$poll_image ?> alt="" width="300" height="200">
   <?php
   $i = 0;
   foreach($questions as $question){
-    ?> <div id = Question><?php echo $question[0]; ?></div>
+    ?> <span id = "question"><?php echo $question[0]; ?></span>
     <?php
     $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ?');
     $stmt->execute(array($question[1],$idPoll));
@@ -67,15 +67,15 @@ if(isset($_GET['poll']))
     while($row = $stmt->fetch()){
       if(isset($answers)){
         if($answer[$j] == $row['idAnswer']){?>
-          <div id = Answer> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" checked = "checked" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
+          <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" checked = "checked" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
         <?php }
         else{?>
-          <div id = Answer> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
+          <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
         <?php  }
         $j++;
       }
       else{ ?>
-        <div id = Answer> <input type="radio" name=<?php echo "answer".$i; ?> value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
+        <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
         <?php  }
     }
     $i++;
