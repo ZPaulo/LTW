@@ -15,6 +15,7 @@ if(isset($_GET['poll']))
   $idPoll = $row['idPoll'];
 
   if(isset($_SESSION['username'])){
+    $isUser = 1;
     $ans = $db->prepare('SELECT * FROM User WHERE user = ?');
     $ans->execute(array($_SESSION['username']));
     $row = $ans->fetch();
@@ -31,6 +32,7 @@ if(isset($_GET['poll']))
     }
   }
   else{
+    $isUser = 0;
     if($row['private'] == 1){
       $_SESSION['Msg'] = "You must login to vote in a private poll";
       header('Location: login_body.php');
@@ -59,34 +61,22 @@ if(isset($_GET['poll']))
   <?php
   $i = 0;
   foreach($questions as $question){
-    ?> <span id = "question"><?php echo $question[0]; ?></span>
+    ?> <section class = <?php echo $question[1]; ?> > <span id = "question"><?php echo $question[0]; ?></span>
     <?php
     $stmt = $db->prepare('SELECT * FROM Answer WHERE idQuestion = ? AND idPoll = ?');
     $stmt->execute(array($question[1],$idPoll));
     $j = 0;
     while($row = $stmt->fetch()){
-      if(isset($answers)){
-        if($answer[$j] == $row['idAnswer']){?>
-          <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" checked = "checked" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
-        <?php }
-        else{?>
-          <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> disabled = "disabled" value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
-        <?php  }
-        $j++;
-      }
+      if(isset($answers)){ ?>
+          <div><span id="votes"><?php echo $row['votes']; ?></span> <?php echo $row['aText']; ?> </div><br>
+      <?php }
       else{ ?>
-        <div><span><?php echo $row['votes']; ?></span> <input type="radio" name=<?php echo "answer".$i; ?> value=<?php echo $row['aText']; ?>><?php echo $row['aText']; ?> (<?php echo $row['votes']; ?> votes) </div><br>
+        <div><span></span><a class = <?php echo $question[1]; ?> user = <?php echo $isUser; ?> votes = <?php echo $row['votes']; ?> href="" name=<?php echo $row['idAnswer']; ?>>Vote</a> <?php echo $row['aText']; ?> </div><br>
         <?php  }
-    }
+    } ?>
+  </section> <?php
     $i++;
   }
-  ?>
-  </fieldset>
-  <?php if(isset($answers)){ ?>
-  <input type="submit" disabled = "disabled" value="Vote!"/>
-  <?php }
-  else{ ?>
-    <input type="submit" value="Vote!"/>
-<?php  }
+
 }
 ?>
