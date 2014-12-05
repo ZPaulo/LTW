@@ -1,6 +1,4 @@
 <?php
-
-
 if(isset($_GET['searchData'])){
   include_once('db/connection.php');
   global $db;
@@ -13,7 +11,7 @@ if(isset($_GET['searchData'])){
 
   while($row = $stmt->fetch()){
     if($row['private'] == 0){
-    $sResults .= '<p> '. $row['idPoll']. ' <a href=vote_poll_body.php?poll='. $row['name'].' name='.$row['name'].' >'.$row['name'].'</a></p><br>';
+    $sResults .= '<li><p> '. $row['idPoll']. ' <a href=vote_poll_body.php?poll='. $row['name'].' name='.$row['name'].' >'.$row['name'].'</a></p></li>';
     }
   }
 

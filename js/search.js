@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   $('#results').html('<p style="padding:5px;">Enter a search term to start filtering.</p>');
 
-  $('#searchData').keyup(function() {
+  $('#searchData').on('keyup focus', function() {
 
     var searchVal = $(this).val();
     if(searchVal !== '') {
