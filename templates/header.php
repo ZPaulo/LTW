@@ -28,6 +28,7 @@
         </li>
         <?php session_start();
             if(isset($_SESSION['username'])){ ?>
+						<li><a href='create_poll_body.php'>CreatePoll</a></li>
             <li><a href='profile_body.php'> <?php echo $_SESSION['username']; ?> </a></li>
             <li><a href='logout.php'>Logout</a></li>
 

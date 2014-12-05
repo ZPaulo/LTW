@@ -12,6 +12,7 @@ if(isset($_GET['poll']))
   $stmt->execute(array($poll));
   $row = $stmt->fetch();
 
+  $poll_image = $row['image'];
   $idPoll = $row['idPoll'];
 
   if(isset($_SESSION['username'])){
@@ -42,7 +43,6 @@ if(isset($_GET['poll']))
 
 
 
-  $poll_image = $row['image'];
 
   $stmt = $db->prepare('SELECT * FROM Question WHERE idPoll = ?');
   $stmt->execute(array($idPoll));
@@ -68,10 +68,23 @@ if(isset($_GET['poll']))
     $j = 0;
     while($row = $stmt->fetch()){
       if(isset($answers)){ ?>
-          <div><span id="votes"><?php echo $row['votes']; ?></span> <?php echo $row['aText']; ?> </div><br>
+        <div id = "voteBar" voted="y"><div id= "bar"><span id="votes"><?php echo $row['votes']; ?></span></div><div id= "voteInfo"> <?php echo $row['aText']; ?> </div></div>
+        <br><br><br><br><br>
       <?php }
       else{ ?>
-        <div><span></span><a class = <?php echo $question[1]; ?> user = <?php echo $isUser; ?> votes = <?php echo $row['votes']; ?> href="" name=<?php echo $row['idAnswer']; ?>>Vote</a> <?php echo $row['aText']; ?> </div><br>
+        <div id = "voteBar" voted="n">
+          <div id= "bar">
+            <span>
+            </span>
+            </div>
+            <div id= "voteInfo">
+              <a class = <?php echo $question[1]; ?> user = <?php echo $isUser; ?> votes = <?php echo $row['votes']; ?> href="" name=<?php echo $row['idAnswer']; ?> >
+                Vote
+                </a>
+                <?php echo $row['aText']; ?>
+                </div>
+              </div>
+                <br><br><br><br><br>
         <?php  }
     } ?>
   </section> <?php

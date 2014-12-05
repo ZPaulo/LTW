@@ -111,21 +111,26 @@ margin: auto;
   padding: 10px;
   font-size: 40px;
 }
-#voteContainer div {
-  font-weight: bold;
-  letter-spacing: -3px;
+#voteContainer #bar{
   background: #0099cc;
-    margin-bottom: 15px;
-        padding: 10px;
-        font-size: 34px;
-        color: #ffffff;
         border-left: 20px solid #333;
-        width: 400px;
-        -webkit-border-radius: 0.5em;
+        width: 0px;
+				height:70px;
+				font-size: 34px;
+				color: #ffffff;
+				font-weight: bold;
         -moz-border-radius: 0 0.5em 0.5em 0;
         border-radius: 0 1.5em 1.5em 0;
+				z-index: 1;
+				position: absolute;
+				padding: 5px 15px;
     }
-    #voteContainer div a {
+   #voteInfo a {
+			padding: 10px;
+			font-size: 34px;
+			color: #ffffff;
+			font-weight: bold;
+			letter-spacing: -3px;
         border-radius: 0.3em;
         text-decoration: none;
         color: #0099cc;
@@ -133,7 +138,26 @@ margin: auto;
         background: #333;
         margin: 0 20px;
     }
-    #voteContainer div a:hover {
+	#voteInfo {
+			padding: 10px;
+			font-size: 34px;
+			color: #000000;
+			font-weight: bold;
+			letter-spacing: -3px;
+			border-radius: 0.3em;
+			text-decoration: none;
+			padding: 5px 15px;
+			margin: 0 20px;
+			z-index: 2;
+			position: absolute;
+		}
+
+		#voteBar {
+			display: inline-flex;
+			float: left;
+		}
+
+    #voteContainer #bar a:hover {
         color: #fff;
     }
 

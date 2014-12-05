@@ -11,7 +11,7 @@
            	<input id="searchData" type="text">
            </div>
           </a>
-            <ul id ="coiso" class="dropdown-menu">
+            <ul class="dropdown-menu">
               <div id = "results">
 
               </div>
@@ -31,3 +31,4 @@
  });
 });
 </script>
+
