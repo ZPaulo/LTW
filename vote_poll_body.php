@@ -10,12 +10,12 @@
 
 <form id="Vote" action = <?php echo "vote.php?poll=". $_GET['poll'] ?> method = "post">
   <div id="voteContainer">
-    
+
     <?php require('load_vote.php');?>
   </div>
 </form>
 
-
+<script type="text/javascript" src="js/animate_vote.js" ></script>
 
 
 
