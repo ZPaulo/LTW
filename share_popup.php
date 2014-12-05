@@ -26,9 +26,16 @@ $url = $_SERVER['SERVER_NAME'].$path;
               <span class="icon_title">Share on Facebook</span>
             </a>
 
-            <a href="#" class="social_box google">
+            <a href="" class="social_box_google">
               <span class="icon"><i class="fa fa-google-plus"></i></span>
               <span class="icon_title">Share on Google</span>
+
+            </a>
+
+            <a href="" class="social_box_twitter">
+              <span class="icon"><i class="fa fa-twitter"></i></span>
+              <span class="icon_title">Share on Twitter</span>
+
             </a>
 
             <a href="#"id="mail" class="social_box mail">
@@ -54,5 +61,7 @@ $('#shareModal').on('show.bs.modal', function (event) {
   modal.find('.modal-body input').val(url)
   modal.find('.modal-title').text("Share "+poll+"  with anyone!")
   $('.social_box_fb').attr("href", "https://www.facebook.com/sharer/sharer.php?u="+url);
+  $('.social_box_google').attr("href", "https://plus.google.com/share?url="+url);
+  $('.social_box_twitter').attr("href", "https://twitter.com/home?status="+url);
 })
 </script>

@@ -14,7 +14,7 @@
           <input type="hidden" id="idPoll" name="idPoll" value="">
         Poll Name<input type="text" id="inputUser" name="name" class="form-control" placeholder="" >
         Private <input type="checkbox" id = "private" name="private" class="form-control" value="private" >
-        Image<input type="file" id="fileToUpload" name="fileToUpload" class="form-control" placeholder=<?php /*echo' ';*/   ?>"Cenas" >
+        Image<input type="file" id="fileToUpload" name="fileToUpload" class="form-control"  >
         <button type="submit" id="button" class="btn btn-primary">CHANGE</button>
         <a  href="=" id="button" class="delete">DELETE</a>
       </form>
