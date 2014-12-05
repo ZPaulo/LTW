@@ -12,6 +12,7 @@ if(isset($_GET['poll']))
   $stmt->execute(array($poll));
   $row = $stmt->fetch();
 
+  $poll_image = $row['image'];
   $idPoll = $row['idPoll'];
 
   if(isset($_SESSION['username'])){
@@ -42,7 +43,6 @@ if(isset($_GET['poll']))
 
 
 
-  $poll_image = $row['image'];
 
   $stmt = $db->prepare('SELECT * FROM Question WHERE idPoll = ?');
   $stmt->execute(array($idPoll));
