@@ -40,7 +40,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h1 class="modal-title" id="registerModalLabel">SIGN IN</h1>
+        <h1 class="modal-title" id="registerModalLabel">CREATE A POLL</h1>
       </div>
       <div class="modal-body">
 <div class="jumbotron" id="j3">
@@ -54,8 +54,8 @@
           </div>
           
           <div class="col-sm-20">
-
-            <input type="checkbox" name="private" value="private">
+           Private <input type="checkbox" name="private" value="private">
+          
           </div>
           
           <div class="col-sm-20">
@@ -85,12 +85,13 @@
   </div>
 </div>
 </div>
-</div>
  <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>
-      <input type = "button" name ="addQue" id = "addQue" value = "Add Question">
+      <input type = "button" class="btn btn-default" name ="addQue" id = "addQue" value = "Add Question">
        
       </div>
+</div>
+
     </div>
   </div>
 

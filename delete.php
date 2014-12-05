@@ -19,8 +19,6 @@ function delete($idPoll)
     $updA = $db->prepare('DELETE FROM UserAnswers WHERE idPoll=?');
     $updA->execute(array($idPoll));
 
-
-
 }
 
 delete($_GET['idPoll']);

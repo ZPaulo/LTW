@@ -20,7 +20,7 @@ $(document).ready(function() {
           var votes = $(this).attr("votes");
           $(this).parent().children().html(votes);
           $(this).parent().animate({
-            width: '+='+50*votes+'px'
+            width: '+='+40*votes+'px'
           }, 500);
         });
       }
