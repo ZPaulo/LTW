@@ -34,7 +34,7 @@ $msg = login();
 
 if($msg == "true"){
   $_SESSION['username'] = $_POST['user'];
-  header('Location: main_page_body.php');
+  header('Location: index.php');
 }
 else{
   $_SESSION['Msg'] = $msg;

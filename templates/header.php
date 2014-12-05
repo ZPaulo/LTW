@@ -13,7 +13,7 @@
 <body>
   <div class = "navbar navbar-inverse navbar-static-top">
     <div class= "container">
-      <a href="#" class= "navbar-brand">YOUPOLL</a>
+      <a href="index.php" class= "navbar-brand">YOUPOLL</a>
       <button class ="navbar-toggle" data-toggle ="collapse" data-target =".navHeaderCollapse">
         <span class ="icon-bar"></span>
         <span class ="icon-bar"></span>
@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
         <li class="active">
-          <a href="index.php">Home</a> 
+          <a href="index.php">Home</a>
         </li>
         <?php session_start();
             if(isset($_SESSION['username'])){ ?>
@@ -34,11 +34,11 @@
           <a href="login_body.php">Login</a>
         </li>
         <li>
-          <a href="register_body.php">Register</a> 
+          <a href="register_body.php">Register</a>
         </li>
         <?php } ?>
-          
-        
+
+
         </ul>
     </div>
   </div>

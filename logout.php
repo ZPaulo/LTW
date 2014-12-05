@@ -5,9 +5,9 @@ session_start();
 
 
 session_destroy();
-header('Location: login_body.php');
+header('Location: index.php');
 exit;
 }
- 
+
 logout();
 ?>

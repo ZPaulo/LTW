@@ -118,6 +118,7 @@ create_poll();
 
 
 
+header('Location: index.php');
 
 
 ?>
