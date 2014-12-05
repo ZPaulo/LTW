@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>YOUPOLL</title>
-  
+
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> <!-- for jquery-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -28,6 +28,7 @@
         </li>
         <?php session_start();
             if(isset($_SESSION['username'])){ ?>
+						<li><a href='create_poll_body.php'>CreatePoll</a></li>
             <li><a href='profile_body.php'> <?php echo $_SESSION['username']; ?> </a></li>
             <li><a href='logout.php'>Logout</a></li>
 

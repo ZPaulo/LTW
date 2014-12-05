@@ -2,6 +2,7 @@
 
 
 session_start();
+unset($_SESSION['Msg']);
 
 $db = new PDO('sqlite:db/dataBase.db');
 
@@ -117,8 +118,12 @@ function create_poll(){
 create_poll();
 
 
-
-header('Location: index.php');
+if(isset($_SESSION['Msg'])){
+  header('Location: create_poll_body.php');
+}
+else{
+  header('Location: profile.php');
+}
 
 
 ?>
