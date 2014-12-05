@@ -1,42 +1,51 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700,800' rel='stylesheet' type='text/css'>
-  <title>YOUPOLL</title>
 
-  <link rel="stylesheet" href="templates/menustyle.css" type="text/css">
-  <link rel="stylesheet" href="templates/style.css" type="text/css">
-  <meta charset = "UTF-8">
-</head>
-<body>
-  <div id="header">
-    <div id="cssmenu">
-      <ul>
-        <li><a href='index.php'><span>HOMEPAGE</span></a></li>
-        <?php session_start();
-        if(isset($_SESSION['username'])){ ?>
 
-          <li><a href='logout.php'><span>Logout</span></a></li>
-          <li><a href='profile.php'><span>Profile</span></a></li>
-          <?php } ?>
-        </ul>
+<button type="button" class="btn btn-primary" data-idpoll= <?php echo $row['idPoll']; ?> data-private = <?php echo $row['private']; ?> data-poll= <?php echo $row['name']; ?> data-toggle="modal" data-target="#manageModal" >Manage</button>
+
+<div class="modal fade" id="manageModal" tabindex="-1" role="dialog" aria-labelledby="manageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="manageModalLabel">Manage Poll</h4>
+      </div>
+      <div class="modal-body">
+         <form class="form-signin" action="manage_poll.php" method ="post" role="form">
+          <input type="hidden" id="idPoll" name="idPoll" value="">
+        Poll Name<input type="text" id="inputUser" name="name" class="form-control" placeholder="" >
+        Private <input type="checkbox" id = "private" name="private" class="form-control" value="private" >
+        Image<input type="file" id="fileToUpload" name="fileToUpload" class="form-control" placeholder=<?php /*echo' ';*/   ?>"Cenas" >
+        <button type="submit" id="button" class="btn btn-primary">CHANGE</button>
+        <a  href="=" id="button" class="delete">DELETE</a>
+      </form>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <?php
-    session_start();
+<script>
+$('#manageModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget)
+  var poll = button.data('poll')
+  var priv = button.data('private')
+  var modal = $(this)
+  var idP = button.data('idpoll')
+  $('.delete').attr('href',"delete.php?idPoll="+idP);
+  $('#idPoll').attr('value', idP);
+  $('#inputUser').attr('placeholder', poll);
+  if(priv == 1){
+    $('#private').attr('checked','checked');
+  }
+  else{
+     $('#private').removeAttr('checked');
+  }
 
-    if(isset($_SESSION['Msg']))
-    ?> <div id = "errorMsg"> <?php echo $_SESSION['Msg'];?> </div>
-    <?php
-    unset($_SESSION['Msg']);
-    ?>
 
-    <div class = "Manage">
-      <ul>
-        <?php require('manage.php');?>
-      </ul>
+})
+</script>
 
 
-
-      <?php include_once('templates/footer.php'); ?>
