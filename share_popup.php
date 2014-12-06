@@ -15,12 +15,12 @@ $url = $_SERVER['SERVER_NAME'].$path;
         <h4 class="modal-title" id="shareModalLabel">Share with anyone</h4>
       </div>
       <div class="modal-body">
-        <form role="form">
+        <form class="form-signin" action="send_mail.php" method ="post" role="form">
           <div class="form-group">
             <label for="shareLink-name" class="control-label">Link:</label>
-            <input type="url" name = "url" value=<?php  echo $url; ?> >
+            <input type="text" class= "url" name = "url" value=<?php  echo $url; ?> placeholder="" >
           </div>
-          <div class="form-social">
+          <div class="form-social" id="links">
             <a href="" target="_blank" class="social_box_fb">
               <span class="icon"><i class="fa fa-facebook"></i></span>
               <span class="icon_title">Share on Facebook</span>
@@ -43,9 +43,20 @@ $url = $_SERVER['SERVER_NAME'].$path;
               <span class="icon_title">Share by e-mail</span>
             </a>
           </div>
-      </form>
+      
       </div>
+
+      <div class="send_email">
+        <div class="modal-body-second">
+          <input type="hidden" id="namePoll" name="name" value="">
+         Emails to send (type email followed by coma (',') for more )
+         <input type="text" id="emails_to_send" name="emails" class="form-control" >
+      </div>
+      <button type="submit" id="button" class="btn btn-primary">SEND</button>
+     </form>
+  </div>
       <div class="modal-footer">
+         <button type="button" class="btn back_btn" data-dismiss="modal">Back</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -60,8 +71,32 @@ $('#shareModal').on('show.bs.modal', function (event) {
   var modal = $(this)
   modal.find('.modal-body input').val(url)
   modal.find('.modal-title').text("Share "+poll+"  with anyone!")
+  $('#namePoll').attr('value', poll);
+  $('.class').attr('placeholder', url);
   $('.social_box_fb').attr("href", "https://www.facebook.com/sharer/sharer.php?u="+url);
   $('.social_box_google').attr("href", "https://plus.google.com/share?url="+url);
   $('.social_box_twitter').attr("href", "https://twitter.com/home?status="+url);
+
+
+  $(".send_email").hide();
+
+  $(function(){
+  $("#mail").click(function(){
+      $("#links").hide();
+      $(".send_email").show();
+      return false;
+    });
+
+
+  $(".back_btn").click(function(){
+      $(".send_email").hide();
+      $("#links").show();
+      return false;
+    });
+
+
+
+  });
+
 })
 </script>
