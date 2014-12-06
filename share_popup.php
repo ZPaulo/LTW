@@ -5,7 +5,7 @@ $path = str_replace($rep,"/vote_poll_body.php?poll=".$row['name'],$uri);
 $url = $_SERVER['SERVER_NAME'].$path;
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shareModal" data-poll=<?php echo $row['name']; ?> data-url=<?php echo $url; ?> >Share</button>
+<button type="button" id="button" class="btn btn-primary" data-toggle="modal" data-target="#shareModal" data-poll=<?php echo $row['name']; ?> data-url=<?php echo $url; ?> >Share</button>
 
 <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalLabel" aria-hidden="true">
   <div class="modal-dialog">

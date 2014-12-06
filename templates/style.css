@@ -4,9 +4,56 @@ body {
   font:'Open Sans', sans-serif;
 	text-align: center;
   background-image: url("knot.jpg");
-  background-repeat: repeat
+  background-repeat: repeat;
 }
 
+#pollList {
+    width: 12em;
+    border-right: 1px solid #000;
+    background-color: #101010;
+    color: #333;
+    text-align:left;
+    list-style: none;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+
+#pollList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    }
+
+#pollList li {
+    border-bottom: 1px solid #101010;
+    margin: 0;
+    }
+
+#pollList li a {
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    border-left: 10px solid #080808;
+    border-right: 10px solid #080808;
+    background-color: #101010;
+    color: #9d9d9d;
+    text-decoration: none;
+    width: 100%;
+    }
+
+html>body #pollList li a {
+    width: auto;
+    }
+
+#pollList li a:hover {
+    border-left: 10px solid #9d9d9d;
+    border-right: 10px solid #9d9d9d;
+    background-color: #101010;
+    color: #fff;
+    }
 #profile{
 
 	margin-top: 20em;
@@ -18,64 +65,7 @@ body {
     bottom: 0;
     width: 100%;
 }
-/*
-#header{
-    height: 70px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}*/
 
-/*
-#register{
-	width: 300px;
-  height: 240px;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  background-color:
-}
-
-#register,p{
-  color: #ffffff;
-}*/
-
-
-
-/*#index,p{
-  color: #ffffff;
-}
-#index {
-	width: 200px;
-  height:84px;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-#info{
-width: 40%;
-height:20%;
-position: absolute;
-top:0;
-bottom: 60%;
-left: 0;
-right: 0;
-margin: auto;
-}
-#info,p{
-  color: #000000;
-}
-*/
-
-/*input{
-  width : 196px;
-}*/
 
 #button {
  padding: 15px 20px;
@@ -165,3 +155,37 @@ margin: auto;
   background: #eee;
   opacity: 0.3;
 }
+
+
+#profileList {
+    width: 100%;
+    background-color: #101010;
+    text-align:left;
+    list-style: none;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+
+
+#profileList li {
+    border-bottom: 1px solid #101010;
+    margin: 0;
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    background-color: #101010;
+    color: #9d9d9d;
+    text-decoration: none;
+    width: 100%;
+    }
+#profileList button{
+  float: right;
+}
+
+
+
+html>body #profileList li a {
+    width: auto;
+    }

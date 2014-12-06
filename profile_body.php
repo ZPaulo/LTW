@@ -1,8 +1,9 @@
 <?php include_once('templates/header.php'); ?>
 
 
-        <div id = "profile">
+       <div class = "container">
+		<div id="profileList">
           <?php include_once('profile.php'); ?>
         </div>
-
+</div>
 <?php include_once('templates/footer.php'); ?>

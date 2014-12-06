@@ -122,7 +122,7 @@ if(isset($_SESSION['Msg'])){
   header('Location: create_poll_body.php');
 }
 else{
-  header('Location: profile.php');
+  header('Location: profile_body.php');
 }
 
 
