@@ -1,6 +1,6 @@
 <?php
+ 
 session_start();
-
 //bordalo.joao94@gmail.com, joao-bordalo94@hotmail.com
 function send_email() 
 {

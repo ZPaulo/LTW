@@ -1,7 +1,7 @@
 <?php
 
-
 session_start();
+ 
 unset($_SESSION['Msg']);
 
 $db = new PDO('sqlite:db/dataBase.db');

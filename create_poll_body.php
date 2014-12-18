@@ -4,12 +4,12 @@
 
 
 <?php
-  session_start();
+   
 
-  if(isset($_SESSION['Msg']))
+  if(isset($_SESSION['Msg'])){
     ?> <div id = "errorMsg"> <?php echo $_SESSION['Msg'];?> </div>
 <?php
-  unset($_SESSION['Msg']);
+  unset($_SESSION['Msg']); }
 ?>
 
 <!--<div id="containerCreate">

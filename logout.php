@@ -1,7 +1,7 @@
 <?php
-
-function logout(){
 session_start();
+function logout(){
+ 
 
 
 session_destroy();

@@ -1,7 +1,7 @@
 <?php
 $db = new PDO('sqlite:db/dataBase.db');
 
-
+session_start();
 
 
 function send_email($email,$name)
@@ -123,7 +123,7 @@ function register_user(){
   }
 }
 
-session_start();
+ 
 
 $_SESSION['Msg'] = register_user();
 
